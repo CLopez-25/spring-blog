@@ -13,4 +13,15 @@ public class PostController {
         return "Here are all the posts:...";
     }
 
+    @GetMapping("/posts/{id}")
+    @ResponseBody
+    public String onePost(@PathVariable long id){
+        return "Here is post number: " + id;
+    }
+
+    @GetMapping("/posts/create")
+    @ResponseBody
+    public String createPost(){
+        return "Here is the form to create a post!";
+    }
 }
