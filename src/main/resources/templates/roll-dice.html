@@ -7,12 +7,18 @@
 <body>
     <h1>Select a number from 1-6</h1>
     <ul>
-        <li><a href="/roll-dice/1">1</a></li>
-        <li><a href="/roll-dice/2">2</a></li>
-        <li><a href="/roll-dice/3">3</a></li>
-        <li><a href="/roll-dice/4">4</a></li>
-        <li><a href="/roll-dice/5">5</a></li>
-        <li><a href="/roll-dice/6">6</a></li>
+        <li><a href="/roll-dice/{n}">1</a></li>
+        <li><a href="/roll-dice/{n}">2</a></li>
+        <li><a href="/roll-dice/{n}">3</a></li>
+        <li><a href="/roll-dice/{n}">4</a></li>
+        <li><a href="/roll-dice/{n}">5</a></li>
+        <li><a href="/roll-dice/{n}">6</a></li>
     </ul>
+    <h1>The number guessed was : <span th:text ="${n}"></span></h1>
+    <h1>The random number was : <span th:text="${randomNumber}"></span></h1>
+    <h2 th:if="${check}">You guessed right!!</h2>
+    <h2 th:if="${!check}">Wrong number!!</h2>
+    <h3><a href="/roll-dice">Try again</a></h3>
+
 </body>
 </html>
