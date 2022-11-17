@@ -10,3 +10,9 @@ public class SpringBlogApplication {
     }
 
 }
+
+//<!--<h1>The number guessed was : <span th:text ="${n}"></span></h1>-->
+//<!--<h1>The random number was : <span th:text="${randomNumber}"></span></h1>-->
+//<!--<h2 th:if="${check}">You guessed right!!</h2>-->
+//<!--<h2 th:if="${!check}">Wrong number!!</h2>-->
+//<!--<h3><a href="/roll-dice">Try again</a></h3>-->

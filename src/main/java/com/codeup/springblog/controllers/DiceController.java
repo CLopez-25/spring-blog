@@ -20,6 +20,6 @@ public class DiceController {
         model.addAttribute("n", n);
         model.addAttribute("randomNumber", randomNumber);
         model.addAttribute("check", check);
-        return "dice-roll-check";
+        return "/roll-dice";
     }
 }
