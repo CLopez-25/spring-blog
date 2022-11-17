@@ -66,4 +66,10 @@ public class Coffee {
     public void setOrigin(String origin) {
         this.origin = origin;
     }
+
+    public Coffee(String roast, String origin, String brand) {
+        this.roast = roast;
+        this.origin = origin;
+        this.brand = brand;
+    }
 }
