@@ -6,17 +6,18 @@
 </head>
 <body>
 <h1>Select a number from 1-6:</h1>
+    <ul>
+        <li><a href="/roll-dice/1">1</a></li>
+        <li><a href="/roll-dice/2">2</a></li>
+        <li><a href="/roll-dice/3">3</a></li>
+        <li><a href="/roll-dice/4">4</a></li>
+        <li><a href="/roll-dice/5">5</a></li>
+        <li><a href="/roll-dice/6">6</a></li>
+    </ul>
 <h2 th:if="${number}">You selected: <span th:text="${number}"></span>!</h2>
 <h2 th:if="${number}">The die landed on <span th:text="${randomNumber}"></span></h2>
 <h2 th:if="${number}"><span th:if="${number} == ${randomNumber}">You guessed correctly!!!</span></h2>
 <h2 th:if="${number} != ${randomNumber}">You guessed incorrectly!!!!</h2>
-        <ul>
-            <li><a href="/roll-dice/1">1</a></li>
-            <li><a href="/roll-dice/2">2</a></li>
-            <li><a href="/roll-dice/3">3</a></li>
-            <li><a href="/roll-dice/4">4</a></li>
-            <li><a href="/roll-dice/5">5</a></li>
-            <li><a href="/roll-dice/6">6</a></li>
-        </ul>
+
 </body>
 </html>
