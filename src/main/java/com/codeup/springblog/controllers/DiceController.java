@@ -17,7 +17,7 @@ public class DiceController {
     @GetMapping("/{number}")
     public String diceGuess(@PathVariable String number, Model model){
         model.addAttribute("number", number);
-        model.addAttribute("randomNumber",Math.ceil(Math.random()*6));
+        model.addAttribute("randomNumber", Math.floor((Math.random() * 6) + 1));
         return "roll-dice";
     }
 }

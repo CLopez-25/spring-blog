@@ -5,12 +5,11 @@
     <title>Dice Roll</title>
 </head>
 <body>
-    <h1>Select a number from 1-6</h1>
-    <h1>The number guessed was : <span th:text ="${number}"></span></h1>
-    <h1>The random number was : <span th:text="${randomNumber}"></span></h1>
-    <h2 th:if="${number}">You guessed right!!</h2>
-    <h2 th:if="${!number}">Wrong number!!</h2>
-    <h3>Try again</h3>
+<h1>Select a number from 1-6:</h1>
+<h2 th:if="${number}">You selected: <span th:text="${number}"></span>!</h2>
+<h2 th:if="${number}">The die landed on <span th:text="${randomNumber}"></span></h2>
+<h2 th:if="${number}"><span th:if="${number} == ${randomNumber}">You guessed correctly!!!</span></h2>
+<h2 th:if="${number} != ${randomNumber}">You guessed incorrectly!!!!</h2>
         <ul>
             <li><a href="/roll-dice/1">1</a></li>
             <li><a href="/roll-dice/2">2</a></li>
