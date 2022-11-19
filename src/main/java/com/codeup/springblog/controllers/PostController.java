@@ -18,6 +18,15 @@ public class PostController {
     public String allPosts(Model model){
         Post post1 = new Post(1, "First", "This is my first post!!");
         Post post2 = new Post(2, "Second", "This is the second post");
+        List<Post> allPosts = new ArrayList<>(List.of(post1, post2));
+        model.addAttribute("allPosts", allPosts);
+        return "/posts/index";
+    }
+
+    @GetMapping("/{id}")
+    public String onePost(@PathVariable long id, Model model){
+        Post post1 = new Post(1, "First", "This is my first post!!");
+        Post post2 = new Post(2, "Second", "This is the second post");
         Post post3 = new Post(3, "Yo", "Third post?");
         List<Post> allPosts = new ArrayList<>(List.of(post1, post2, post3));
         Post post = null;
@@ -26,12 +35,8 @@ public class PostController {
                 post = userPost;
             }
         }
-        return "/post/";
-    }
-
-    @GetMapping("/{id}")
-    public String onePost(@PathVariable long id){
-        return "Here is post number: " + id;
+        model.addAttribute("post", post);
+        return "/posts/show";
     }
 
     @GetMapping("/create")
