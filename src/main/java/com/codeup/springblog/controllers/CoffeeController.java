@@ -1,6 +1,8 @@
 package com.codeup.springblog.controllers;
 import com.codeup.springblog.models.Coffee;
+import com.codeup.springblog.models.Supplier;
 import com.codeup.springblog.repositories.CoffeeRepository;
+import com.codeup.springblog.repositories.SupplierRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +13,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/coffee")
 public class CoffeeController {
-//    dependency injection lines 15-19
+//    dependency injection lines 16-22
     private final CoffeeRepository coffeeDao;
+    private final SupplierRepository suppliersDao;
 
-    public CoffeeController(CoffeeRepository coffeeDao){
+    public CoffeeController(CoffeeRepository coffeeDao, SupplierRepository supplierDao){
         this.coffeeDao = coffeeDao;
+        this.suppliersDao = supplierDao;
     }
 
     @GetMapping
@@ -35,15 +39,18 @@ public class CoffeeController {
     }
 
     @GetMapping("/new")
-    public String addCoffeeForm(){
+    public String addCoffeeForm(Model model){
+        List<Supplier> suppliers = suppliersDao.findAll();
+        model.addAttribute("suppliers", suppliers);
         return "create-coffee";
     }
 
     @PostMapping("/new")
-    public String addCoffee(@RequestParam(name="roast") String roast, @RequestParam(name="origin") String origin, @RequestParam(name="brand") String brand){
-        Coffee coffee = new Coffee(roast, origin, brand);
+    public String addCoffee(@RequestParam(name="roast") String roast, @RequestParam(name="origin") String origin, @RequestParam(name="brand") String brand, @RequestParam(name="supplier") long id){
+        Supplier supplier = suppliersDao.findById(id);
+        Coffee coffee = new Coffee(roast, origin, brand, supplier);
         coffeeDao.save(coffee);
-        return "coffee";
+        return "redirect:/coffee/all-coffees";
     }
 
     @GetMapping("/all-coffees")
@@ -57,5 +64,19 @@ public class CoffeeController {
     public String signUp(@RequestParam(name = "email") String email, Model model){
         model.addAttribute("email", email);
         return "coffee";
+    }
+
+    @GetMapping("/suppliers")
+    public String showSuppliersForm(Model model){
+        List<Supplier> suppliers = suppliersDao.findAll();
+        model.addAttribute("suppliers", suppliers);
+        return "/suppliers";
+    }
+
+    @PostMapping("/suppliers")
+    public String insertSuppliers(@RequestParam(name = "name") String name){
+        Supplier supplier = new Supplier(name);
+        suppliersDao.save(supplier);
+        return "redirect:/coffee/suppliers";
     }
 }

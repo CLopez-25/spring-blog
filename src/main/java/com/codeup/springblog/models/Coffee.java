@@ -75,4 +75,11 @@ public class Coffee {
         this.origin = origin;
         this.brand = brand;
     }
+
+    public Coffee(String roast, String origin, String brand, Supplier supplier) {
+        this.roast = roast;
+        this.origin = origin;
+        this.brand = brand;
+        this.supplier = supplier;
+    }
 }
