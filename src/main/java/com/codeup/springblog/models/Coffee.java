@@ -31,6 +31,9 @@ public class Coffee {
     @Column(nullable = false, length = 100)
     private String brand;
 
+    @ManyToOne
+    private Supplier supplier;
+
     public String getBrand() {
         return brand;
     }
