@@ -2,21 +2,17 @@ package com.codeup.springblog.models;
 
 import javax.persistence.*;
 import java.util.List;
-
 @Entity
-@Table(name = "users")
+@Table(name="users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @Column(nullable = false, length = 50, unique = true)
     private String username;
-
     @Column(nullable = false, length = 60)
     private String email;
-
     @Column(nullable = false)
     private String password;
 
@@ -55,6 +51,14 @@ public class User {
         this.password = password;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
     public User() {
     }
 
@@ -70,6 +74,4 @@ public class User {
         this.email = email;
         this.password = password;
     }
-
-
 }
