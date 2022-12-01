@@ -4,6 +4,7 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,11 @@ public class PostController {
 
     @PostMapping("/create")
     public String submitPost(@ModelAttribute Post post){
-        User user = usersDao.findById(2L);
+        long currentUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        if (currentUserId == 0){
+            return "redirect:/login";
+        }
+        User user = usersDao.findById(currentUserId);
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts";
@@ -52,14 +57,25 @@ public class PostController {
 
     @GetMapping("/{id}/edit")
     public String showEditPostForm(@PathVariable long id, Model model){
+        long currentUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        if (currentUserId == 0){
+            return "redirect:/login";
+        }
         Post post = postDao.findById(id);
+        if (post.getUser().getId() != currentUserId){
+            return "redirect:/posts";
+        }
         model.addAttribute("post", post);
         return "/posts/edit";
     }
 
     @PostMapping("/{id}/edit")
     public String editPost(@ModelAttribute Post post){
-        User user = usersDao.findById(1L);
+        long currentUserId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+        if (currentUserId == 0){
+            return "redirect:/login";
+        }
+        User user = usersDao.findById(currentUserId);
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts";
