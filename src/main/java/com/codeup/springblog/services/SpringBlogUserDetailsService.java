@@ -16,6 +16,8 @@ public class SpringBlogUserDetailsService implements UserDetailsService {
     public SpringBlogUserDetailsService(UserRepository usersDao){
         this.usersDao = usersDao;
     }
+
+//    rewritten application and leverages the usersDao which reaches into the database and only accepts a user based on a username from the database.
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = usersDao.findByUsername(username);
