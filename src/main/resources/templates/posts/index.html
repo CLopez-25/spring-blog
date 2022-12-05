@@ -13,16 +13,20 @@
     </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
-    <h1>Blog feed: </h1>
-        <ul th:each="post : ${allPosts}">
-            <li>
-                <h2 th:text="${post.title}"></h2>
-                <p th:text="${post.body}"></p>
-                <p th:if="${post.user.id} == ${#authentication.principal.id}">
-                    <button th:data-id="${post.id}" class="editButton">Edit</button>
-                </p>
-            </li>
-        </ul>
+    <h1>Diary Entries! </h1>
+    <div class="container">
+        <div class="row">
+            <ul class="col-sm" th:each="post : ${allPosts}">
+                <li>
+                    <h2 th:text="${post.title}"></h2>
+                    <p th:text="${post.body}"></p>
+                    <p th:if="${post.user.id} == ${#authentication.principal.id}">
+                        <button th:data-id="${post.id}" class="editButton">Edit</button>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="/js/edit.js"></script>
 </body>

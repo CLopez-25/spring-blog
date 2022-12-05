@@ -1,11 +1,33 @@
-
-
-
 body{
     background-color: #A7D489;
     color: ghostwhite;
     font-family: 'Nerko One', serif;
     text-align: center;
+}
+
+.navbar{
+    background-color: #A7D489;
+    padding-top: 1.5em;
+}
+
+.nav-link{
+    color: ghostwhite;
+}
+
+.navbar-brand{
+    color: ghostwhite;
+}
+
+input{
+    color: #A7D489;
+}
+
+textarea{
+    color: #A7D489;
+}
+
+.editButton{
+    color: #A7D489;
 }
 
 h1{
@@ -14,10 +36,6 @@ h1{
 
 ul{
     list-style-type: none;
-}
-
-.nav-link{
-    color: ghostwhite;
 }
 
 .login-form{
