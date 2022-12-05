@@ -8,6 +8,8 @@
     <title>Edit a Post</title>
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
+
 <div sec:authorize="isAuthenticated()">
     This content is only shown to authenticated users.
 
