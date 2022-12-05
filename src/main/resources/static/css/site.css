@@ -1,6 +1,10 @@
+
+
+
 body{
     background-color: white;
     color: black;
+    font-family: 'Nerko One', serif;
 }
 
 @media (min-width: 768px) {
