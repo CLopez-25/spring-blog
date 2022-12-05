@@ -23,6 +23,9 @@
                     <p th:if="${post.user.id} == ${#authentication.principal.id}">
                         <button th:data-id="${post.id}" class="editButton">Edit</button>
                     </p>
+<!--                    <form th:if="${post.user.id} == ${#authentication.principal.id}" th:action="@{/posts/{id}/delete(id=${post.id})}" th:method="post">-->
+<!--                        <button>Delete</button>-->
+<!--                    </form>-->
                 </li>
             </ul>
         </div>
