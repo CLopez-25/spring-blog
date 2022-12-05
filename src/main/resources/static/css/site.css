@@ -2,9 +2,22 @@
 
 
 body{
-    background-color: white;
-    color: black;
+    background-color: #A7D489;
+    color: ghostwhite;
     font-family: 'Nerko One', serif;
+    text-align: center;
+}
+
+h1{
+    padding-top: 1em;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.login-form{
+    padding-top: 4em;
 }
 
 @media (min-width: 768px) {
