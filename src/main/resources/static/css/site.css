@@ -16,6 +16,10 @@ ul{
     list-style-type: none;
 }
 
+.nav-link{
+    color: ghostwhite;
+}
+
 .login-form{
     padding-top: 4em;
 }
