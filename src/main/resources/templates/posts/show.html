@@ -7,6 +7,8 @@
     <title>Show</title>
 </head>
 <body>
+<nav th:fragment="navbar" class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+
     <div th:if="${post}">
         <h2 th:text="${post.title}"></h2>
         <p th:text="${post.body}"></p>
