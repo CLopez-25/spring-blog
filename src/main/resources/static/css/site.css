@@ -1,12 +1,12 @@
 body{
-    background-color: #A7D489;
+    background-color: #46663f;
     color: ghostwhite;
     font-family: 'Nerko One', serif;
     text-align: center;
 }
 
 .navbar{
-    background-color: #A7D489;
+    background-color: #46663f;
     padding-top: 1.5em;
 }
 
@@ -20,8 +20,8 @@ body{
 }
 
 input{
-    color: #A7D489;
-    border-color: #A7D489;
+    color: #46663f;
+    border-color: #46663f;
     font-size: 1.2em;
 }
 
@@ -30,17 +30,17 @@ label{
 }
 
 textarea{
-    color: #A7D489;
+    color: #46663f;
 }
 
 .editButton{
-    color: #A7D489;
-    border-color: #A7D489;
+    color: #46663f;
+    border-color: #46663f;
 }
 
 .deleteBtn{
-    color: #A7D489;
-    border-color: #A7D489;
+    color: #46663f;
+    border-color: #46663f;
 }
 
 .nav-item{
