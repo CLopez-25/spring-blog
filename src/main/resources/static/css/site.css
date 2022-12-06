@@ -58,6 +58,11 @@ h2{
     font-size: 2.5em;
 }
 
+.createHeader{
+    padding-top: 1.1em;
+    padding-bottom: 1.5em;
+}
+
 ul{
     list-style-type: none;
 }

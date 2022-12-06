@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
-  <h2>Create a Post</h2>
+  <h2 class="createHeader">Create a Post</h2>
   <form th:action="@{/posts/create}" method="post" th:object="${post}">
     <label for="title">Title:</label>
     <input type="text" th:field="*{title}" id="title">
