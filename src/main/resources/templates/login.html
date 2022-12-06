@@ -11,24 +11,25 @@
     <title>Log In</title>
 </head>
 <body>
-
     <nav th:replace="partials :: navbar"></nav>
-
 
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
 
     <h1 class="display-5"> Welcome To Ollie's Diary! Log In Or Select Register To Create A New Profile</h1>
+
     <div th:if="${param.error}">
         Invalid Username and Password.
     </div>
 
     <form class="login-form" th:action="@{/login}" method="post">
-        <label for="username">Username</label>
+        <label for="username">Username:</label>
         <input id="username" name="username" type="text">
-        <label for="password">Password</label>
+        <br><br>
+        <label for="password">Password:</label>
         <input id="password" name="password" type="password">
+        <br><br>
         <input type="submit" value="Log In">
     </form>
 
