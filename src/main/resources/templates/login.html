@@ -19,10 +19,11 @@
 
     <h1 class="display-5"> Welcome To Ollie's Diary! Log In Or Select Register To Create A New Profile</h1>
 
-    <div th:if="${param.error}">
-        Invalid Username and Password.
-    </div>
-    <img src="../static/img/RenderedImage%20Small.jpeg" alt="" width="240" height="320">
+    <p>
+        This is Oliver's diary as told by his Mom and Dad with random stories or entries about his milestones. We hope he gets the opportunity to read them and see what his parents had to say about him.
+    </p>
+<!--    <img src="../../../img/RenderedImage%20Small.jpeg" alt="" width="240" height="320">-->
+
     <form class="login-form" th:action="@{/login}" method="post">
         <label for="username">Username:</label>
         <input id="username" name="username" type="text">
@@ -32,6 +33,10 @@
         <br><br>
         <input type="submit" value="Log In">
     </form>
+
+    <div th:if="${param.error}">
+        Invalid Username and Password.
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
