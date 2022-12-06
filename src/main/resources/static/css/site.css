@@ -16,6 +16,7 @@ body{
 
 .navbar-brand{
     color: ghostwhite;
+    font-size: 20px;
 }
 
 input{
@@ -32,12 +33,31 @@ textarea{
     border-color: #A7D489;
 }
 
+.deleteBtn{
+    color: #A7D489;
+    border-color: #A7D489;
+}
+
+.nav-item{
+    font-size: 20px;
+}
+
 h1{
     padding-top: 1em;
+    padding-bottom: 1.5em;
+    font-size: 3.5em;
+}
+
+h2{
+    text-decoration-line: underline;
 }
 
 ul{
     list-style-type: none;
+}
+
+p{
+    font-size: 1.2em;
 }
 
 .login-form{

@@ -13,19 +13,19 @@
     </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
-    <h1>Diary Entries! </h1>
+    <h1>~Diary Entries~ </h1>
     <div class="container">
         <div class="row">
-            <ul class="col-sm" th:each="post : ${allPosts}">
+            <ul class="col-6" th:each="post : ${allPosts}">
                 <li>
                     <h2 th:text="${post.title}"></h2>
                     <p th:text="${post.body}"></p>
                     <p th:if="${post.user.id} == ${#authentication.principal.id}">
                         <button th:data-id="${post.id}" class="editButton">Edit</button>
                     </p>
-<!--                    <form th:if="${post.user.id} == ${#authentication.principal.id}" th:action="@{/posts/{id}/delete(id=${post.id})}" th:method="post">-->
-<!--                        <button>Delete</button>-->
-<!--                    </form>-->
+                    <form th:if="${post.user.id} == ${#authentication.principal.id}" th:action="@{/posts/{id}/delete(id=${post.id})}" th:method="post">
+                        <button class="deleteBtn">Delete</button>
+                    </form>
                 </li>
             </ul>
         </div>
